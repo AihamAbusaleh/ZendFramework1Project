@@ -1,0 +1,87 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage[german]{babel}
+ 
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{figure}
+  	\hspace*{-15.0mm} {\includegraphics[width=50mm]{logo}}
+  	\end{figure}
+  
+\hspace{10mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+
+\textit{\textbf{\Huge{ Studienmethodik und Selbstmanagement  SS 2015}}}\\
+\emph{\textbf{3.Protokoll Gruppe 1} }
+\begin{flushleft}
+\textit{ Dozentin :  Antje Grießmayer }
+\end{flushleft}
+
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{flushright}
+vom 04.05.2015
+\end{flushright}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Modulstermine}
+\begin{enumerate}
+\item Modul 23.03.15
+\item Modul 20.04.15
+\emph{\textbf{\item Modul 18.05.15}}
+\item Modul 18.05.15
+\item Prüfung 15.06.15 um 11:00
+\end{enumerate}
+
+\section*{Referat}
+
+\begin{itemize}
+\item 7. Weg: Die Säge schärfen  (Vorträger OLIVER)
+\item Eisenhower (Vorträger DANIEL)
+\item Mnemo-Techniken (Vorträger HENRY)
+\end{itemize}
+
+\section*{TODO Listen :}
+\begin{itemize}
+\item Nicht nur MUSS Aufgaben, snodern auch Hobbies gehören zu TODO Listen.
+\item Kraftquelle
+\item Anfahrtzeiten
+\item HTWG Stundenplan
+\item Zeitfresser : Wartezeiten, Busfahrten, Zocken ( beim Überschneiden der Kraftquelle )
+\item Schalfzeiten : man weiß wie viele Stunden zum Schlafen sind .
+\item Einkaufen / Haushalt
+\item Esszeiten 
+\item Nebenjobs
+\item Hygienezeiten
+\item Lesezeiten
+\item Pufferzeit (anderthalb Stunden) : geplante Zeit (nicht freie Zeit)
+\end{itemize}
+
+\section*{Aufgabebündelung: }
+\begin{enumerate}
+\item Zeitfresser :  mit anderen Dingen gleichzeitig erledigen (multitasking) : Z.B  Buch während der Fahrzeit lesen.
+\item Stellestunde : 
+ \begin{itemize}
+ \item  äußere Einflusse vermeiden (zur Ruhe kommen !)
+ \item Konzentrationsaufgeben besser durchziehen !
+ \end{itemize}
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+\section*{Aufgabe}
+Wochenplan überlegen !
+\end{document}
