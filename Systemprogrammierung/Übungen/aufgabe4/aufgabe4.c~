@@ -1,0 +1,183 @@
+/*
+ * aufgabe4.c
+ *
+ * Liest Fachnamen mit Beurteilung ein und gibt dann einen Notenspiegel aus.
+ *
+ * Autor: TODO: Abusaleh
+ * Erstellt am: TODO: 10.05.15
+ */
+
+/* TODO: #include-Anweisungen, symbolische Konstante, Typen ... */
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+enum p_arten {BENOTET, UNBENOTET}
+
+struct strukturen
+{
+    struct strukturen *vor;
+    struct strukturen *nach;
+    char fachname[20];
+    enum p_arten art;
+    union
+    {
+        int note;
+        char beurteilung;
+    } u;
+};
+typedef struct strukturen fach_note;
+
+
+void einlesen(fach_note *);
+void einfuegen(fach_note *, fach_note *, fach_note *);
+void schleife(fach_note *, void );
+void entfernen(fach_note * , fach_note *);
+void ausgeben(fach_note *);
+
+
+int main(void)
+{
+    fach_note *notenspiegel = NULL;
+    fach_note *p;
+    fach_note *q;
+
+    /*------------------------------------------- Notenspiegel einlesen */
+    fprintf(stderr, "Faecher mit Noten eingeben (Ende mit Strg-D):\n");
+
+    for (;;)
+    {
+        p = (fach_note *) malloc(sizeof (fach_note));
+        if (p == NULL) /*Das Eingabeformat können Sie der Datei aufgabe4-in.txt für den automatisierten Test entnehmen. Beim Einlesen mit scanf */
+        {
+            fprintf(stderr, "Zu viele Faecher!\nc");
+            break;
+        }
+
+        if (! einlesen(p))
+        {
+            fprintf(stderr, "Eingabeende!\n");
+            free(p);
+            break;
+        }
+
+        notenspiegel = einfuegen(notenspiegel, p, &q);
+        if (q != NULL)
+        {
+            fprintf(stderr, "Alte Eingabe ueberschrieben!\n");
+            free(q);
+        }
+    }
+
+    /*------------------------------------------- Notenspiegel ausgeben */
+    printf("Notenspiegel:\n");
+
+    schleife(notenspiegel, ausgeben);
+
+    /*------------------------------------------- Notenspiegel loeschen */
+    while (notenspiegel != NULL)
+    {
+        notenspiegel = entfernen(notenspiegel, &p);
+        free(p);
+    }
+
+    return 0;
+}
+
+/* TODO: Funktionsimplementierungen */
+
+void einlesen(fach_note n)
+{
+    int i;
+    char *zeichen;
+    char leer = ' ';
+    zeichen = strchr(fachname, '_');
+
+    if(scanf("%s Fachname: %c Beurteilung: ", &n.fachname[20] , &n.u.beurteilung))
+    {
+        while(zeichen != NULL)
+        {
+            zeichen = leer;
+        }
+        return 0;
+    }
+    return -1;
+}
+
+
+void ausgeben(fach_note fachname[20])
+{
+
+    if((fach_note.u.note >= 10 && fach_note.u.note <= 40)
+{
+    printf("%s 'B' %f", fach_note.u.beurteilung , fach_note.u.note / 10);
+    }
+    else if(fach_note.u.note == 50)
+{
+    printf("%s 'N' %f", fach_note.u.beurteilung , fach_note.u.note / 10);
+    }
+    else
+    {
+        printf("Fehler %d", fach_note.u.note);
+    }
+
+
+
+    /*	printf("%-*s",); */
+}
+
+fach_note einfuegen(fach_note data, fach_note *vor, fach_note *nach)
+{
+    /*Liste erzeugen*/
+    fach_note *head = (fach_note *) malloc(sizeof(fach_note));
+    fach_note *n = (fach_note *) malloc(sizeof(fach_note)); /*Element hinzu..*/
+    head->nach = head;
+    head->vor = head ;
+    head->data = -1;
+
+    if (p == NULL)
+    {
+        fprintf(stderr, "Zu viele Faecher!\n");
+        break;
+    }
+    else
+    {
+        /*ein Element hinzu.*/
+
+        n->data = data;
+        n->vor = head;
+        n->nach = head->nach;
+        head->nach = n;
+        n->nach->vor = n;
+        return n;
+
+    }
+    for( ; n != NULL; n = n->nach)
+    {
+        if (n->data)
+        {
+            head->nach->vor = head->vor;
+            head->vor->nach = head->nach;
+
+        }
+    }
+
+
+    free(head);
+    free(n);
+
+}
+
+void schleife()
+{
+
+}
+
+
+
+
+
+
+
+

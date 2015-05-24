@@ -1,0 +1,42 @@
+/**
+*		Aufgabe 1 Abgabe bis 9.4.15
+*      @Autor : Aiham Abusaleh	
+*			
+*/
+
+#include<stdio.h>
+
+// Antwort "sort": Variablen sind nach Platzbedarf abgelegt im HS (aufsteigend), direkt hintereinander ohne lücken 
+// Antwort "sort -r" : Platz frei größ wie die Variablenzahl !! also Speicher doppelt so größ
+int main (void)
+{
+	int a = 54321; 
+	short b  = -5873;
+	long  c = 56789098L;
+	unsigned d = 12345;
+	unsigned short e = 127;  
+	unsigned long f =76544L;
+	float g = 15.44F;
+	double h = 145.50;
+	long double i = 134.56433L;
+	char j = 'm';
+	signed char k = -1;
+	unsigned	char l =  122;
+	char* s = "Hallo";	 
+	
+	printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %d \n\n", (void*) &a, (unsigned long) sizeof a,a );
+		printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %d \n\n", (void*) &b, (unsigned long) sizeof b,b );
+			printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %ld \n\n", (void*) &c, (unsigned long) sizeof c,c );
+				printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %d \n\n", (void*) &d, (unsigned long) sizeof d,d );
+					printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %du \n\n", (void*) &e, (unsigned long) sizeof e,e );
+						printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %lu \n\n", (void*) &f, (unsigned long) sizeof f,f );
+							printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %f \n\n", (void*) &g, (unsigned long) sizeof g,g );
+								printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %5f \n\n", (void*) &h, (unsigned long) sizeof h,h );
+									printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %Lf \n\n", (void*) &i, (unsigned long) sizeof i,i );
+										printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %c \n\n", (void*) &j, (unsigned long) sizeof j,j );
+											printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %c \n\n", (void*) &k, (unsigned long) sizeof k,k );
+												printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %c \n\n", (void*) &l, (unsigned long) sizeof l,l );
+													printf(" (Adresse) = %p ;  (Platzbedarf) = %lu ;  (Wert) = %s \n\n", (void*) &s, (unsigned long) sizeof s,s );
+	
+	return 0;
+}
