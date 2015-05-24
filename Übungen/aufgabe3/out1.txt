@@ -1,0 +1,14 @@
+Noten im Format Ganze,Zehntel oder Ganze.Zehntel eingeben (Ende mit Strg-D):
+Unzulaessige Note 2-3 wird ignoriert!
+Unzulaessige Note 3,1 wird ignoriert!
+Unzulaessige Note 6.0 wird ignoriert!
+Unzulaessige Note 1 wird ignoriert!
+Unzulaessige Note 1,75 wird ignoriert!
+Unzulaessige Note gut wird ignoriert!
+Unzulaessige Note x,y wird ignoriert!
+
+Anzahl beruecksichtigter Noten: 6
+Beste Note: 1,7 
+Schlechteste Note: 5,0
+Durchschnitt: 3,1 
+Durchfallquote: 16,7% 

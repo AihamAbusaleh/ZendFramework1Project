@@ -1,0 +1,77 @@
+// ShortVar.java
+
+package aufgabe1;
+
+import java.util.Scanner;
+import static java.lang.System.out;
+
+/**
+ * ShortVar zeigt den Umgang mit Variablen vom Typ Short.
+ * &Uuml;bungsaufgabe 1 zur Programmiertechnik 1.
+ * @author Abusaleh
+ * @version 06.04.15 
+ */
+public final class ShortVar {
+    private ShortVar() { }
+
+    private static final Scanner EINGABE = new Scanner(System.in);
+
+    /**
+     * main ist der Startpunkt des Programms.
+     * @param args wird nicht verwendet.
+     */
+    public static void main(final String[] args) {
+        /* TODO: Konstanten min und max definieren */
+       // out.println(Short.MAX_VALUE);
+		const short MAX = 127; 
+        //out.println(Short.MIN_VALUE);
+		const short MIN  = -128;
+		 
+        /* TODO: Eingabeaufforderung ausgeben */
+
+		out.println("Bitte geben Sie die 1.Zahl ein : ");
+		short zahl_1 = EINGABE.next();    // Muss da .nextInt() bzw. nextShort() ...... stehen ?!!!!!
+		out.println("Bitte geben Sie die 2.Zahl ein : ");
+		short zahl_2 = EINGABE.next();
+		
+        /* TODO: zwei ganze Zahlen einlesen */
+
+		out.printf("%d %d die eingegebenen Zahlen lauten : %n", zahl_1, zahl_2);
+
+
+        /* TODO: die beiden Zahlen dezimal, okatal und hexadezimal ausgeben */
+		out.printf("%d %d  Zahlen in Dezimal%n", zahl_1,zahl_2);
+        out.printf("%o %o Zahlen in Oktal%n", zahl_1,zahl_2);
+        out.printf("%x %x Zahlen in Hexa%n", zahl_1,zahl_2);
+
+
+
+        /* TODO: alle zweistelligen arithmetischen Operatoren ausprobieren */
+
+		out.printf("Division", zahl_1 / zahl_2);
+		out.printf("Multi", zahl_1 * zahl_2);
+		out.printf("Plus", zahl_1 + zahl_2);
+		out.printf("Minus", zahl_1 - zahl_2);
+
+
+
+        /* TODO: alle Vergleichsoperatoren ausprobieren */
+
+		if( zahl_1 <  zahl_2);
+			return true;
+		if( zahl_1 > zahl_2);
+			return true;
+		if( zahl_1 == zahl_2);
+			return true;
+		if( zahl_1 != zahl_2);
+			return true;
+		if( zahl_1 <= zahl_2);
+			return true;
+		if( zahl_1 >= zahl_2);
+			return true;
+
+
+
+    }
+}
+
