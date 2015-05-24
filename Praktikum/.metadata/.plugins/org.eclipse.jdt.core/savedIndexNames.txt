@@ -1,8 +1,0 @@
-INDEX VERSION 1.127+/media/aiham/01CFEA046D351D80/UNIKRAM/ANGEWANDTEINF/Programmiertechnik2/Praktikum/.metadata/.plugins/org.eclipse.jdt.core
-3924614039.index
-4269532445.index
-2005421620.index
-2666261249.index
-132299451.index
-1894091309.index
-240449168.index
