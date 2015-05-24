@@ -4,4 +4,4 @@ Lösungen der Aufgaben AIN SS15
 
 1. *In den Ordnern 1,2 ... befinden sich jeweils die Aufgebenstellung*
 
-2. *In den Ordnern ***blatt/src*** befinden sich jeweils die Lösung der jeweiligen Aufgaben*
+2. *In den Ordnern $blatt'*/src$ befinden sich jeweils die Lösung der jeweiligen Aufgaben*
