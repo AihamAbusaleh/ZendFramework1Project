@@ -1,0 +1,11 @@
+package blatt8;
+
+public interface Schaltung {
+	
+	public double getWiderstand();
+	public int getAnzahlWiderstand();
+	public void add(Schaltung s);
+	public void remove(Schaltung s);
+	
+
+}

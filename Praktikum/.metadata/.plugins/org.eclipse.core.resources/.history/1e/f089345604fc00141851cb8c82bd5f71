@@ -1,0 +1,28 @@
+package version2;
+
+import java.io.File;
+
+public class DirectoryPrintVisitor implements DirectoryVisitor{
+
+	@Override
+	public void enterDirectory(File dir) {
+		File[] files = dir.listFiles();
+		for (File f : files) {
+			 
+		}
+		
+		
+	}
+
+	@Override
+	public void leaveDirectory(File dir) {
+		
+	}
+
+	@Override
+	public void visitFile(File file) {
+		
+		
+	}
+
+}

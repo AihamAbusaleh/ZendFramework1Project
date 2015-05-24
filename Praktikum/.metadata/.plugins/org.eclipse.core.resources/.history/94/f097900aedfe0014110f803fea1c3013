@@ -1,0 +1,23 @@
+package version2;
+
+import java.io.File;
+import version2.DirectoryVisitor; // Sind doch im Selben Packet
+
+public class FileBrowser {
+	
+	public void traverse(File dir, DirectoryVisitor visitor) {
+		  File[] files = dir.listFiles();
+		  for (File f : files) {
+			  if(f.isDirectory()) {
+				  visitor.enterDirectory(f);
+				  traverse(f, new DirectoryPrintVisitor());
+				  visitor.leaveDirectory(f); 
+			  } else {
+				  visitor.visitFile(f);
+			  }
+				  
+			
+		}
+	}
+
+}

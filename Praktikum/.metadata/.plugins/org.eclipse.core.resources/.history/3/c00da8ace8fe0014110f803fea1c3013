@@ -1,0 +1,41 @@
+package version2;
+
+import java.io.File;
+
+public class DirectoryPrintVisitor implements DirectoryVisitor{
+
+	@Override
+	public void enterDirectory(File dir) {
+		File[] files = dir.listFiles();
+		for (File f : files) {
+			 
+		}
+		
+		
+	}
+	
+	public void print() {
+		printR(0);
+	}
+	/**
+	 * die Methode printet Leerzeichen für die Einrückung ! REKURSIV
+	 * @param d 
+	 */
+	public void printR(int d) {
+		for (int i = 0; i < d; i++) {
+			System.out.println("  ");
+		}
+		
+	}
+	@Override
+	public void leaveDirectory(File dir) {
+		
+	}
+
+	@Override
+	public void visitFile(File file) {
+		file.getName();
+		
+	}
+
+}

@@ -1,0 +1,53 @@
+package blatt7;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.LinkedList;
+
+public class FileBrowser1 {
+
+public static void main(String[] args) {
+	File dir = new File("/home/aiham/Pictures");
+	List<String> list = new LinkedList<String>();
+	try {
+		dirPrint(dir);
+		dirSearch(dir, ".txt", list);
+	} catch (IOException e) {
+		e.printStackTrace(); // StackOverflowError vermeiden !!! sofortiger Abbruch des Threads, Speicher sparen
+	}
+	 
+}
+
+public static void dirPrint(File file) throws IOException { 
+	  File[] files = file.listFiles();
+	  for (File f : files) {
+		if (f.isDirectory()) {
+			System.out.println("*Ordner :* " + f.getAbsolutePath() + "    \n *Name des Ordners : *" 
+					+ f.getName() + "    \n *Göße des Ordners in KB :*" + f.length()/1024+"KB" );
+			dirPrint(f);
+		} else {
+			System.out.println("*Datei *: " + f.getAbsolutePath() + "    \n *Name der Datei : *" 
+					+ f.getName() 
+					+ " \n *Göße der Datei in KB :* " + f.length()/1024+"KB"  ); 
+
+		}
+	  }
+}
+
+public static void dirSearch(File file, String txt, List<String> list) throws IOException {
+	File[] files = file.listFiles();
+	if (files != null) {
+		for (File f : files) {
+		//	if (((!f.isDirectory()) || (f.isDirectory()))) {
+				if (f.getName().endsWith(txt)) { //  ".txt" propiert funktioniert ! 
+					list.add(f.getName());
+					dirSearch(f, ".txt", list); // wozu !?
+				//	System.out.println(list);
+				}
+				
+		}
+	}
+}
+
+}

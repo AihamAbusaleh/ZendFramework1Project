@@ -1,0 +1,64 @@
+package version2;
+
+import java.io.File;
+
+import version2.FileBrowser;
+
+public class DirectoryPrintVisitor implements DirectoryVisitor{
+	
+	int d = 0;
+	@Override
+	public void enterDirectory(File dir) {
+		File[] files = dir.listFiles();
+		for (int i = 0; i < d; i++) {
+			 System.out.print("  ");
+		}
+		for (File f : files) {
+			if (f.isDirectory()) {
+				System.out.println("*Ordner :* " + f.getAbsolutePath() + "    \n *Name des Ordners : *" 
+						+ f.getName() + "    \n *Göße des Ordners in KB :*" + f.length()/1024+"KB" );
+			} else {
+				System.out.println("*Datei *: " + f.getAbsolutePath() + "    \n *Name der Datei : *" 
+						+ f.getName() 
+						+ " \n *Göße der Datei in KB :* " + f.length()/1024+"KB"  ); 
+
+			}
+		}	
+	}
+	
+
+	@Override
+	public void leaveDirectory(File dir) {
+		File[] files = dir.listFiles();
+		for (int i = d; i > 0; i--) {
+			 System.out.print("  ");
+		}
+		for (File f : files) {
+			if (f.isDirectory()) {
+				System.out.println("*Ordner :* " + f.getAbsolutePath() + "    \n *Name des Ordners : *" 
+						+ f.getName() + "    \n *Göße des Ordners in KB :*" + f.length()/1024+"KB" );
+			} else {
+				System.out.println("*Datei *: " + f.getAbsolutePath() + "    \n *Name der Datei : *" 
+						+ f.getName() 
+						+ " \n *Göße der Datei in KB :* " + f.length()/1024+"KB"  ); 
+
+			}
+		}
+	}
+
+	@Override
+	public void visitFile(File file) {
+		File dir = new File("/home/aiham/Pictures");
+		traverse(dir, new DirectoryPrintVisitor());
+		
+		
+	}
+
+
+	@Override
+	public void traverse(File dir, DirectoryVisitor visitor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

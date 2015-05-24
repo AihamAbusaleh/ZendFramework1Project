@@ -1,0 +1,21 @@
+package version2;
+
+import java.io.File;
+
+public class FileBrowser {
+	
+	public void traverse(File dir, DirectoryVisitor visitor) {
+		  File[] files = dir.listFiles();
+		  for (File f : files) {
+			  if(f.isDirectory()) {
+				  traverse(f, visitor);
+				  visitor.enterDirectory(f);
+			  } else {
+				  visitor.leaveDirectory(f);
+			  }
+				  
+			
+		}
+	}
+
+}
