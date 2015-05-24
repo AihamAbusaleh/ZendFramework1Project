@@ -1,0 +1,8 @@
+package blatt8;
+
+public interface Schaltung {
+	
+	public double getWiderstand();
+	
+
+}

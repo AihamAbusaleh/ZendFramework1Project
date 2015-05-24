@@ -1,0 +1,6 @@
+package version2;
+
+public interface DirectoryVisitor {
+	public void enterDirectory(File dir);
+	
+}

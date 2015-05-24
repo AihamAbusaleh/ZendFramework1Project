@@ -1,0 +1,37 @@
+package version2;
+
+import java.io.File;
+import version2.FileBrowser;
+
+public class DirectoryPrintVisitor implements DirectoryVisitor{
+	
+	int d = 0;
+	@Override
+	public void enterDirectory(File dir) {
+		File[] files = dir.listFiles();
+		for (File f : files) {
+			 System.out.print("  ");
+			 f.getName();
+			 d++;
+		}	
+	}
+	
+
+	@Override
+	public void leaveDirectory(File dir) {
+		File[] files = dir.listFiles();
+		for (File f : files) {
+			 System.out.print("  ");
+			 f.getName();
+			 d--;
+		}	
+	}
+
+	@Override
+	public void visitFile(File file) {
+		File dir = new File("/home/aiham/Pictures");
+		
+		
+	}
+
+}

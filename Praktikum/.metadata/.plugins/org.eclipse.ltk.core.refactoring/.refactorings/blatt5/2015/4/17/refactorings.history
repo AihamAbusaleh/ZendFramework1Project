@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 5 elements to &apos;blatt5/src/erweiterungblatt5&apos;&#x0A;- Original project: &apos;blatt5&apos;&#x0A;- Destination element: &apos;blatt5/src/erweiterungblatt5&apos;&#x0A;- Original elements:&#x0A;     blatt5.Set.java&#x0A;     blatt5.LinkedListSet.java&#x0A;     blatt5.ArraySet.java&#x0A;     blatt5.AbstractSet.java&#x0A;     blatt5.SetApplication.java" description="Copy compilation units" destination="/src&lt;erweiterungblatt5" element1="/src&lt;blatt5{Set.java" element2="/src&lt;blatt5{LinkedListSet.java" element3="/src&lt;blatt5{ArraySet.java" element4="/src&lt;blatt5{AbstractSet.java" element5="/src&lt;blatt5{SetApplication.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1429707314754" units="5" version="1.0"/>
+</session>
