@@ -1,6 +1,0 @@
-package blatt8;
-
-public class Widerstand implements Schaltung{
-	public
-
-}
