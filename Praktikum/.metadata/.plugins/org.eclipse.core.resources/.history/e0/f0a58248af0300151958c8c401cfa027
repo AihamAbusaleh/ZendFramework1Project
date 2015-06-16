@@ -1,0 +1,20 @@
+package teil2;
+
+public class Buch {
+
+	private String name;
+	private Benutzer user;
+
+	public Buch(String name) {
+		this.name = name;
+	}
+
+	public Benutzer getUser() {
+		return user;
+	}
+
+//	public void setUser(Benutzer user) {
+//		this.user = user;
+//	}
+
+}

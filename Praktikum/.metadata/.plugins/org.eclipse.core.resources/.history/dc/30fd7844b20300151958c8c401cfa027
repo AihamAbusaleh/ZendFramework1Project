@@ -1,0 +1,27 @@
+package teil2;
+
+public class Buch {
+
+	// private String name;
+	private Benutzer user;
+
+	public void userentfernen() {
+		if (user == null)
+			return; // user ist nicht registriert
+		Benutzer neunutzer = user;
+		neunutzer.zurueckgeben(this);
+
+	}
+
+	public Benutzer getUser() {
+		return user;
+	}
+
+	public void setUser(Benutzer u) {
+		if (user != null)
+			return; // user registriert !
+		user = u;
+		u.ausleihen(this); // set dieser user
+	}
+
+}

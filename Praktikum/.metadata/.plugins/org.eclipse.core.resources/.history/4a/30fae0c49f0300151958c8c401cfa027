@@ -1,0 +1,29 @@
+package blatt8;
+
+public class Widerstand implements Schaltung { // entspricht dem Blatt in Design
+	double widerstand;											// pattern
+
+	@Override
+	public double getWiderstand() {
+		
+		return widerstand;
+	}
+
+	@Override
+	public int getAnzahlWiderstaende() {
+		return 0;
+	}
+
+	@Override
+	public void add(Schaltung s) {
+		// bleibt leer
+
+	}
+
+	@Override
+	public void remove(Schaltung s) {
+		// bleibt leer
+
+	}
+
+}

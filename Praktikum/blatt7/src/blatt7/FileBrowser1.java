@@ -10,17 +10,19 @@ public class FileBrowser1 {
 	public static void main(String[] args) throws IOException {
 		File dir = new File("/home/aiham/Pictures");
 		List<String> list = new LinkedList<String>();
-		DirectorySearchVisitor v = new DirectorySearchVisitor();
+	//	DirectorySearchVisitor v = new DirectorySearchVisitor();
+		DirectoryPrintVisitor v = new DirectoryPrintVisitor();
 
-		dirPrint(dir);
-		dirSearch(dir, ".txt", list);
-		v.setExtension(".txt");
+	//	dirPrint(dir);
+//		dirSearch(dir, ".txt", list);
+		
+	//	v.setExtension(".txt");
 		traverse(dir, v);
 
-		for (String s : v.getSearchList()) {
-			System.out.println(s);
-		}
-		System.out.println(" " + list + " ");
+//		for (String s : v.getSearchList()) {
+//			System.out.println(s);
+//		}
+//	System.out.println(" " + list + " ");
 
 	}
 
@@ -64,11 +66,11 @@ public class FileBrowser1 {
 				if (!f.isDirectory()) {
 					if (f.getName().endsWith(txt)) { // ".txt" funktioniert !
 						list.add(f.getName());
-						dirSearch(f, ".txt", list); // wozu !?
+						dirSearch(f, ".txt", list); //
 
 					}
 				} else {
-					dirSearch(f, ".txt", list); // wozu !?
+					dirSearch(f, ".txt", list); // 
 				}
 
 			}

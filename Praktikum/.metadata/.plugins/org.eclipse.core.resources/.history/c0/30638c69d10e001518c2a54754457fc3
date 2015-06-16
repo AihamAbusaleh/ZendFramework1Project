@@ -1,0 +1,9 @@
+package blatt8;
+
+public class Reihenschaltung extends ZusammengesetzeSchaltung implements Schaltung{
+	public double getWiderstand() {
+		
+		return 0;
+	}
+
+}

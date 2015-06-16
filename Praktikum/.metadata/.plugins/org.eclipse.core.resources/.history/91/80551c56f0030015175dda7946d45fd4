@@ -1,0 +1,17 @@
+package blatt9;
+
+import java.awt.Color;
+
+public class ArrayDraw {
+
+	public void init(int b, int h) {
+		StdDraw.clear(Color.WHITE);
+
+	}
+
+	public void drwa(int[] a, Color c) {
+
+	
+	}
+
+}

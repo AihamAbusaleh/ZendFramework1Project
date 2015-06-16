@@ -1,0 +1,25 @@
+package blatt8;
+
+import java.util.List;
+
+public abstract class ZusammengesetzeSchaltung {
+	protected List<Schaltung> schaltung;
+	
+	public int getAnzahlWiderstaende() {
+		for (Schaltung s : schaltung) {
+				s.getWiderstand();
+		}
+		return getAnzahlWiderstaende();
+	
+	}
+
+	public void add(Schaltung s) {
+		schaltung.add(s);
+		
+	}
+	
+	public void remove(Schaltung s) {
+		schaltung.remove(s);
+		
+	}
+}

@@ -1,0 +1,10 @@
+package teil2;
+
+public class TestBiblio {
+	
+	public static void main(String[] args) {
+		Benutzer user1 = new Benutzer();
+		user1.ausleihen(new Buch("Einführung in GL"));
+	}
+
+}

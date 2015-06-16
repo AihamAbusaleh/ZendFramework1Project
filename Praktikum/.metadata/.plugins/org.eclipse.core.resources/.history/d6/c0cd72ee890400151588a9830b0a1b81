@@ -1,0 +1,24 @@
+package blatt9;
+
+import java.awt.Color;
+
+public class ArrayDraw {
+
+	private ArrayDraw() { }
+
+	public static void init(final int b, final int h) {
+		StdDraw.setCanvasSize(b, h);
+		StdDraw.clear(Color.WHITE);
+		StdDraw.filledRectangle(0.5, 0.5, 1, 1);
+	//	StdDraw.setPenColor(Color.WHITE);
+		
+	}
+
+	public static void drwa(final int[] a, final Color c) {
+		for (int i = 0; i < a.length; i++) {
+
+		}
+
+	}
+
+}

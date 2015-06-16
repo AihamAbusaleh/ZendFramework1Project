@@ -1,0 +1,21 @@
+package teil2;
+
+public class TestBiblio {
+
+	public static void main(String[] args) {
+		Benutzer user1 = new Benutzer("ICH");
+		user1.ausleihen(new Buch("EINFÜHRUNG IN COMPUTERGRAFIK 2015"));
+		
+		Buch buch = new Buch("PROGRAMMIER 2");
+		user1.ausleihen(buch);
+		System.out.println(buch.getName() + " wurde jetzt ausgeliehen von : "
+				+ user1.getName());
+		user1.zurueckgeben(buch);
+		// buch.userentfernen();
+		// System.out.println(user1.getName());
+		System.out.println("Das ausgeliehene Buch :" + buch.getName()
+				+ " wurde eben von " + user1.getName() + " zurückgegeben");
+
+	}
+
+}

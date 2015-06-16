@@ -1,0 +1,12 @@
+package teil2;
+
+public class Buch {
+
+	private String name;
+	private Benutzer user;
+
+	public Buch(String name) {
+		this.name = name;
+	}
+
+}

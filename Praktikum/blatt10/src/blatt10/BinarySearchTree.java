@@ -133,9 +133,9 @@ public class BinarySearchTree {
 
 	private static void prettyPrintR(Node p, int tiefe, StringBuilder s) {
 		// Einrückung
-		for (int i = 0; i < tiefe; i++) {
+		for (int i = 1; i < tiefe; i++) {
 			// System.out.print(" ");
-			s.append("	");
+			s.append("  ");
 		}
 		// das wird am Anfang nicht geprintet (siehe Kommentar in prettyPrint)
 		if (tiefe > 0)
@@ -157,7 +157,6 @@ public class BinarySearchTree {
 		// System.out.println(p.data); wenn p != null
 		// prettyPrint(p.left, tiefe ); alle left Knoten printen
 		// prettyPrint(p.right, tiefe );
-
 	}
 
 	private static int getHight(Node p) {
@@ -176,8 +175,8 @@ public class BinarySearchTree {
 		 * FORMEL für Durchschnitliche Tiefe : Höhe 0 hat einen Knoten (root);
 		 * Höhe 1 hat zwei Knoten; Höhe 2 hat 3 Knoten; Höhe 3 hat 1 Knoten
 		 */
-		// double depth = 0;
-		// int anzahlInEbene = 0;
+		double depth = 0;
+		int anzahlInEbene = 0;
 		// ArrayList<Integer> liste = new ArrayList<Integer>();
 		//
 		// for (int i = 0; i <= getHight(root); i++) {
@@ -186,8 +185,28 @@ public class BinarySearchTree {
 		// depth = anzahlInEbene / (double) getSize();
 
 		// System.out.println("Durchschnitliche Tiefe  : " + depth);
+		int[] array = new int[getHight(root) + 1];
+		getAnzEbene(0, root, array);
+
+		for (int i = 0; i < array.length; i++) {
+			anzahlInEbene += array[i] * (i);
+		}
+		depth = anzahlInEbene / (double) getSize();
+
+		System.out.println("Durchschnitliche Tiefe  : " + depth);
+
 		System.out.println("Anzahl Einträge : " + getSize());
 		System.out.println("Baumhöhe : " + getHight(root));
+	}
+
+	private void getAnzEbene(int ebene, Node node, int[] array) {
+		array[ebene] += 1;
+		if (node != null && node.left != null) {
+			getAnzEbene(ebene + 1, node.left, array);
+		}
+		if (node != null && node.right != null) {
+			getAnzEbene(ebene + 1, node.right, array);
+		}
 
 	}
 
@@ -208,23 +227,19 @@ public class BinarySearchTree {
 	}
 
 	private boolean isBinarySearchTree(Node p) {
-		if (p == null)
-			return true;
-		if (p.left == null && p.right == null) {
-			return true;
-		}
-		if (lessThan(maximum(p.left), root)) {
-			return true;
-		}
-		if (lessThan(minimum(p.right), root)) {
-			return true;
-		}
-		return false;
-		// return p == null
-		// || (isBinarySearchTree(p.left)
-		// && isBinarySearchTree(p.right)
-		// && (maximum(p.left) == null || maximum(p.left).data < p.data)
-		// && (minimum(p.right) == null || minimum(p.right).data > p.data));
+//		if (p == null)
+//			return true;
+//		if (p.left == null && p.right == null) {
+//			return true;
+//		}
+//		if (lessThan(maximum(p.left), root) && lessThan(minimum(p.right), root)) {
+//			return true;
+//		}
+//		return false;
+		 return p == null
+		 || (isBinarySearchTree(p.left)
+		 && isBinarySearchTree(p.right)
+						&& (maximum(p.left) == null || maximum(p.left).data < p.data) && (minimum(p.right) == null || minimum(p.right).data > p.data));
 	}
 
 	public Node minimum(Node p) {

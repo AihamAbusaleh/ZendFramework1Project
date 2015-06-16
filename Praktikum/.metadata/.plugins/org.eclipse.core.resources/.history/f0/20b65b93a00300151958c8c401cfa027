@@ -1,0 +1,12 @@
+package blatt8;
+
+public class Test {
+	public static void main(String[] args) {
+		Schaltung ps1 = new Parallelschaltung();
+		ps1.add(new Widerstand(400));
+		ps1.add(new Widerstand(100));
+		 
+		System.out.print(ps1.getWiderstand());
+		
+	}
+}

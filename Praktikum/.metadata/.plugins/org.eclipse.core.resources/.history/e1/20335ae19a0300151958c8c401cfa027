@@ -1,0 +1,13 @@
+package blatt8;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
+
+public class Parallelschaltung extends ZusammengesetzeSchaltung{
+	public double getWiderstand() {
+		double t = 0;
+		for (Schaltung s : schaltung) {
+			 t = max(t,s.getWiderstand());
+		}
+	}
+
+}
