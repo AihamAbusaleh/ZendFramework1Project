@@ -20,14 +20,16 @@ public class Sort {
 											// beteiligt -> Das gesamte Feld neu
 											// gezeichnet
 
-				ArrayDraw.draw(a, i, Color.RED);
-				ArrayDraw.draw(a, j, Color.RED);
+		//		ArrayDraw.draw(a, j, Color.RED);
 
 				a[j + 1] = a[j];// Nach vertauschen kommt BLUE
-				ArrayDraw.draw(a, StdDraw.BLUE);
+		//		ArrayDraw.draw(a, StdDraw.BLUE);
 
 				j--;
 			}
+			if(j != -1)
+			ArrayDraw.draw(a, j, Color.RED);
+
 			a[j + 1] = v;
 			// Nach vertauschen kommt BLUE -> Das gesamte Feld neu gezeichnet
 			ArrayDraw.draw(a, Color.BLUE);
@@ -41,7 +43,11 @@ public class Sort {
 
 	public static void quickSort(final int[] a) {
 		// ArrayDraw.init(a.length, a.length, "QuickSort");
+		ArrayDraw.draw(a, Color.BLUE);
+
 		quickSort(a, 0, a.length - 1);
+		ArrayDraw.draw(a, Color.BLUE);
+
 		ArrayDraw.showTime();
 	}
 
@@ -54,6 +60,10 @@ public class Sort {
 		int re = rechts;
 
 		while (re > li) {
+			ArrayDraw.draw(a,re, Color.RED);
+			ArrayDraw.draw(a,li, Color.RED);
+
+
 			// Teileschritt:
 			int i = partition(a, li, re);
 			// Herrscheschritt:
@@ -71,19 +81,19 @@ public class Sort {
 
 	private static int partition(final int[] a, final int li, final int re) {
 		int v = a[re]; // Pivotelement
-		ArrayDraw.draw(a, StdDraw.BLUE);
+	//	ArrayDraw.draw(a, StdDraw.BLUE);
 		int i = li - 1;
 		int j = re;
 		while (true) {
 
 			do {
 				i++;
-				ArrayDraw.draw(a, i, StdDraw.RED);
-				ArrayDraw.draw(a, re, StdDraw.RED);
+			//	ArrayDraw.draw(a, i, StdDraw.RED);
+			//	ArrayDraw.draw(a, re, StdDraw.RED);
 			} while (a[i] < v);
 			do {
-				ArrayDraw.draw(a, i, StdDraw.RED);
-				ArrayDraw.draw(a, re, StdDraw.RED);
+			//	ArrayDraw.draw(a, i, StdDraw.RED);
+			//	ArrayDraw.draw(a, re, StdDraw.RED);
 				j--;
 			} while (j >= li && a[j] > v);
 			if (i >= j) {
@@ -93,17 +103,17 @@ public class Sort {
 			// a[i] und a[j] vertauschen:
 			int t = a[i];
 			a[i] = a[j];
-			ArrayDraw.draw(a, StdDraw.BLUE);
+		//	ArrayDraw.draw(a, StdDraw.BLUE);
 			a[j] = t;
 			ArrayDraw.draw(a, StdDraw.BLUE);
 
 		}
 		// Pivotelement a[r] und a[i] vertauschen:
 		a[re] = a[i];
-		ArrayDraw.draw(a, Color.BLUE);
+	//	ArrayDraw.draw(a, Color.BLUE);
 
 		a[i] = v;
-		ArrayDraw.draw(a, Color.BLUE);
+	//	ArrayDraw.draw(a, Color.BLUE);
 
 		ArrayDraw.showTime();
 		return i;
@@ -120,6 +130,10 @@ public class Sort {
 	public static void quickSort3Median(final int[] a) {
 		// ArrayDraw.init(a.length, a.length, "QuickSort3Median");
 		quickSort3Median(a, 0, a.length - 1);
+		 ArrayDraw.draw(a, Color.BLUE);
+			ArrayDraw.showTime();
+
+
 	}
 
 	/*--------------------------------------------------------------------------------------------------------------*/
@@ -133,6 +147,10 @@ public class Sort {
 		while (re > li) {
 			// Teileschritt:
 			int i = partition3Median(a, li, re);
+			 ArrayDraw.draw(a,  Color.BLUE);
+			 ArrayDraw.draw(a, re, Color.RED);
+			 ArrayDraw.draw(a, li, Color.RED);
+
 			// Herrscheschritt:
 			if (i - li < re - i) {
 				quickSort3Median(a, li, i - 1);
@@ -152,7 +170,7 @@ public class Sort {
 		// 3 Median
 		int mi = (re + li) / 2;
 
-		ArrayDraw.draw(a, Color.BLUE);
+	//	ArrayDraw.draw(a, Color.BLUE);
 
 		if ((a[li] < mi && a[li] > re) || (a[li] > mi && a[li] < re)) {
 			// ArrayDraw.draw(a, li, Color.RED);
@@ -167,19 +185,19 @@ public class Sort {
 		} else {
 			// ArrayDraw.draw(a, re, Color.RED);
 		}
-		ArrayDraw.draw(a, StdDraw.BLUE);
+	//	ArrayDraw.draw(a, StdDraw.BLUE);
 		int v = a[re]; // Pivotelement
 		int i = li - 1;
 		int j = re;
 		while (true) {
 			do {
 				i++;
-				ArrayDraw.draw(a, i, StdDraw.RED);
-				ArrayDraw.draw(a, re, StdDraw.RED);
+			//	ArrayDraw.draw(a, i, StdDraw.RED);
+			//	ArrayDraw.draw(a, re, StdDraw.RED);
 			} while (a[i] < v);
 			do {
-				ArrayDraw.draw(a, i, StdDraw.RED);
-				ArrayDraw.draw(a, re, StdDraw.RED);
+			//	ArrayDraw.draw(a, i, StdDraw.RED);
+			//	ArrayDraw.draw(a, re, StdDraw.RED);
 				j--;
 
 			} while (j >= li && a[j] > v);
@@ -190,17 +208,17 @@ public class Sort {
 			// a[i] und a[j] vertauschen:
 			int t = a[i];
 			a[i] = a[j];
-			ArrayDraw.draw(a, StdDraw.BLUE);
+	//		ArrayDraw.draw(a,re, StdDraw.BLUE);
 			a[j] = t;
-			ArrayDraw.draw(a, StdDraw.BLUE);
+	//		ArrayDraw.draw(a,li, StdDraw.BLUE);
 
 		}
 
 		// Pivotelement a[r] und a[i] vertauschen:
 		a[re] = a[i];
-		ArrayDraw.draw(a, StdDraw.BLUE);
+	//	ArrayDraw.draw(a, StdDraw.BLUE);
 		a[i] = v;
-		ArrayDraw.draw(a, StdDraw.BLUE);
+	//	ArrayDraw.draw(a, StdDraw.BLUE);
 
 		ArrayDraw.showTime();
 		return i;
