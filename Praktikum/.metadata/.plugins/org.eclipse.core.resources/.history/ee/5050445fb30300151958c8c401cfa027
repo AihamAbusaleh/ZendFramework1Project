@@ -1,0 +1,16 @@
+package teil2;
+
+public class TestBiblio {
+	
+	public static void main(String[] args) {
+		Benutzer user1 = new Benutzer();
+		user1.ausleihen(new Buch("Einführung in GL"));
+		Buch buch = new Buch("Prog2");
+		user1.ausleihen(buch);
+		System.out.print("Buch wurde jetzt ausgeliehen von :" + buch.getUser()); 
+		user1.zurueckgeben(buch);
+		System.out.print("Das ausgeliehene Buch :" + buch.getName()); 
+
+	}
+
+}

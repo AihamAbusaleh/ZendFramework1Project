@@ -1,0 +1,29 @@
+package blatt9;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class SortAnimation {
+	public static void main(String[] args) {
+        final int[] feld = getRandomArray(30);
+
+        Sort.insertionSort(feld.clone());
+        Sort.quickSort(feld.clone());
+        Sort.quickSort3Median(feld.clone());
+    }
+	
+	 private static int[] getRandomArray(final int n) {
+	        ArrayList<Integer> list = new ArrayList<Integer>();
+	        for (int i = 0; i < n; i++) {
+	            list.add(i);
+	        }
+	        int[] array = new int[n];
+	        Random r = new Random();
+	        for (int i = 0; i < array.length; i++) {
+	            int index = r.nextInt(list.size());
+	            array[i] = list.get(index);
+	            list.remove(index);
+	        }
+	        return array;
+	    }
+}

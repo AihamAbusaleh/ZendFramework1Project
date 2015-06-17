@@ -1,0 +1,11 @@
+package teil2;
+
+public class Buch {
+
+	private String name;
+
+	public Buch(String name) {
+		this.name = name;
+	}
+
+}

@@ -1,0 +1,12 @@
+package blatt9;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class SortAnimation {
+	public static void main(String[] args) {
+     
+    }
+	
+
+}

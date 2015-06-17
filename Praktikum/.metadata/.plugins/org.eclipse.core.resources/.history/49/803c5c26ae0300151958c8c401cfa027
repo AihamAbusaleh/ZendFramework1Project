@@ -1,0 +1,10 @@
+package teil2;
+
+public class Benutzer {
+	private String name;
+
+	public Benutzer(String name) {
+		this.name = name;
+	}
+
+}
