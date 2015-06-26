@@ -1,6 +1,8 @@
 package blatt11;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -106,34 +108,38 @@ public class Taschenrechner extends JFrame implements ActionListener,
 
         rad = new JRadioButton("Rad");
         rad.setSelected(true);
-
-        rad.addActionListener(this);
-        deg.addActionListener(this);
+        helles = new JCheckBox("Helles Display");
+        helles.setSelected(true);
 
         ButtonGroup group = new ButtonGroup();
         group.add(deg);
         group.add(rad);
+        rad.addActionListener(this);
+        deg.addActionListener(this);
+        helles.addItemListener(this);
 
-        JPanel raddegPanel = new JPanel();
-        raddegPanel.add(deg);
-        raddegPanel.add(rad);
-
+        JPanel raddeghellPanel = new JPanel();
+        raddeghellPanel.add(deg);
+        raddeghellPanel.add(rad);
+        // add(raddegPanel, BorderLayout.LINE_START);
         // this.add(deg);
         // this.add(rad);
         // this.add(helles);
         // ---------------------------------------------------------------------------
-        helles = new JCheckBox("Helles Display");
-        helles.setSelected(true);
 
-        helles.addItemListener(this);
-        pack();
-        setVisible(true);
-        raddegPanel.add(helles);
+        raddeghellPanel.add(helles);
+        // JPanel checkPanel = new JPanel(new GridLayout(0, 1));
+        //checkPanel.add(helles);
+        // add(checkPanel, BorderLayout.LINE_START);
+        //pack();
+        // setVisible(true);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(p1);
-        panel.add(raddegPanel);
+        panel.add(raddeghellPanel);
+        //   panel.add(checkPanel);
+
         panel.add(p2);
         panel.add(p3);
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -203,8 +209,9 @@ public class Taschenrechner extends JFrame implements ActionListener,
                     z.setText("1");
                 } else if (op1 == 360) {
                     z.setText("0");
-                }else
-                z.setText("" + degreeSIN);
+                } else {
+                    z.setText("" + degreeSIN);
+                }
 
             }
 
@@ -276,5 +283,6 @@ public class Taschenrechner extends JFrame implements ActionListener,
 
         JFrame myApp = new Taschenrechner();
         //  myApp.setVisible(true);
+        //  myApp.getGraphics();
     }
 }
