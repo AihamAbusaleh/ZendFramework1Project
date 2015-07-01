@@ -1,6 +1,5 @@
 // O. Bittel
 // 27.5.2011
-
 package aufgabe11TelefonBuch;
 
 import javax.swing.*;
@@ -12,15 +11,21 @@ public class TelefonBuchGUI extends JFrame {
     public TelefonBuchGUI() {
         // TelefonBuch anlegen:
         telBuch = new TelefonBuch();
+        TelefonBuchEinfuegenPanel p = new TelefonBuchEinfuegenPanel(telBuch);
+        TelefonBuchSuchenLoeschenPanel s = new TelefonBuchSuchenLoeschenPanel(telBuch);
+               TelefonBuchMenuBar m = new TelefonBuchMenuBar(telBuch);
 
-        // Menuleiste einbauen:
-        // ...
-
-        // mainPanel mit Umrandung versehen und das
-        // Einfuegen- und  SuchenLoeschenPanel einbauen:
+     
         JPanel mainPanel = new JPanel();
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(17, 17, 17, 17));
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
+                this.setJMenuBar(m);
+
+        mainPanel.add(p);
+                mainPanel.add(s);
+
+
+
         // ...
         this.setContentPane(mainPanel);
 
