@@ -17,13 +17,14 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.text.NumberFormat;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class Taschenrechner extends JFrame implements ActionListener,
         ItemListener {
-
+ NumberFormat nf = NumberFormat.getNumberInstance(Locale.US);
     JCheckBox helles;
 
     JRadioButton deg;
@@ -162,10 +163,11 @@ public class Taschenrechner extends JFrame implements ActionListener,
         // if (!(fir && sec)) {
         //    return;
         // }
-        s1 = String.format(Locale.US, s1);
-        s2 = String.format(Locale.US, s2);
+       
         double op1;
         double op2;
+         s1 = String.format(Locale.US, s1);
+        s2 = String.format(Locale.US, s2);
         try {
             op1 = Double.parseDouble(s1);
             op2 = Double.parseDouble(s2);
@@ -196,7 +198,7 @@ public class Taschenrechner extends JFrame implements ActionListener,
         }
 
         if (source == log2) {
-            z.setText("" + (Math.log(op1) / Math.log(2)));
+            z.setText("" + (Math.log(op1) / Math.log(2.0)));
             y.setText("0");
         }
 
