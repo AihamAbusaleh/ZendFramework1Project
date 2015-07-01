@@ -1,6 +1,5 @@
 // O. Bittel
 // 2.3.2012
-
 package aufgabe11TelefonBuch;
 
 import java.util.Map.Entry;
@@ -11,25 +10,74 @@ import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class TelefonBuch {
 
-    private TreeMap<String,String> telBuch = new TreeMap<String,String>();
+    private TreeMap<String, String> telBuch = new TreeMap<String, String>();
 
     public boolean insert(String name, String zusatz, String telNr) {
-        return true; // damit IDE kein Systaxfehler anzeigt
+        String nameUndzusatz = name + " " + zusatz;
+
+        //   for (Entry<String, String> entrySet : telBuch.entrySet()) {
+        if (!telBuch.containsKey(nameUndzusatz)) {
+            if (zusatz == null) {
+                telBuch.put(name, telNr);
+                return true;
+            } else {
+                telBuch.put(nameUndzusatz, telNr);
+                return true;
+            }
+        }
+        //  }
+
+        return false;
+
     }
 
     public boolean remove(String name, String zusatz) {
-        return true; // damit IDE kein Systaxfehler anzeigt
+        String nameUndzusatz = name + " " + zusatz;
+
+        for (Entry<String, String> entrySet : telBuch.entrySet()) {
+            if (entrySet.getKey().equals(nameUndzusatz)) {
+                telBuch.remove(nameUndzusatz);
+                return true;
+            }
+        }
+        return false;
+
     }
 
     public String exactSearch(String name, String zusatz) {
+        String key = name + " " + zusatz;
+        if (telBuch.containsKey(key)) {
+            return telBuch.get(key);
+        }
         return ""; // damit IDE kein Systaxfehler anzeigt
     }
 
     public List<String> prefixSearch(String s) {
-        return null; // damit IDE kein Systaxfehler anzeigt
+        List<String> liste = new LinkedList<String>();
+        String key;
+        String value;
+
+        if (s.equals("")) {
+            for (Entry<String, String> entrySet : telBuch.entrySet()) {
+                key = entrySet.getKey();
+                value = entrySet.getValue();
+                liste.add(key + " " + value);
+            }
+
+        } else {
+            String letzterBuchstabe = s.substring(0, s.length() - 1) + (char) (s.charAt(s.length() - 1) + 1);
+            for (Entry<String, String> entrySet : telBuch.subMap(s, letzterBuchstabe).entrySet()) {
+                String key1 = entrySet.getKey();
+                String value1 = entrySet.getValue();
+                liste.add(key1 + " " + value1);
+
+            }
+
+        }
+        return liste; // damit IDE kein Systaxfehler anzeigt
+
     }
 
     public void read(File f) {
@@ -67,34 +115,36 @@ public class TelefonBuch {
     }
 
     private static void print(List<String> strList) {
-        for (String s : strList)
+        for (String s : strList) {
             System.out.println(s);
+        }
     }
 
     public static void main(String[] args)
             throws FileNotFoundException, IOException {
-        
-        TelefonBuch telBuch = new TelefonBuch();
-        telBuch.read(new File("TelBuchMit420Namen.txt"));
 
-        System.out.println(telBuch.exactSearch("Oliver",""));
+        TelefonBuch telBuch = new TelefonBuch();
+        //  telBuch.read(new File("/home/aiham/Desktop/TelBuchMit420Namen.txt"));
+        telBuch.read(new File("TelBuchMit420Namen.txt"));
+        System.out.println(telBuch.exactSearch("Oliver", ""));
         System.out.println();
 
         print(telBuch.prefixSearch("H"));
         System.out.println();
-        
+
         print(telBuch.prefixSearch(""));
+
         System.out.println();
 
-        telBuch.insert("Oliver","1","33245");
-        telBuch.insert("Oliver","2","23423");
-        telBuch.insert("Oliver","3","87655");
-        telBuch.remove("Oliver","2");
+        telBuch.insert("Oliver", "1", "33245");
+        telBuch.insert("Oliver", "2", "23423");
+        telBuch.insert("Oliver", "3", "87655");
+        telBuch.remove("Oliver", "2");
 
         print(telBuch.prefixSearch("Ol"));
         System.out.println();
-       
+
+        // telBuch.save(new File("/home/aiham/Desktop/test.txt"));
         telBuch.save(new File("test.txt"));
     }
 }
-
