@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;StdDraw.java&apos; to &apos;blatt9/src/blatt9&apos;&#x0A;- Original project: &apos;blatt6&apos;&#x0A;- Destination element: &apos;blatt9/src/blatt9&apos;&#x0A;- Original element: &apos;blatt6.StdDraw.java&apos;" description="Copy compilation unit" destination="=blatt9/src&lt;blatt9" element1="/src&lt;blatt6{StdDraw.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1432652479365" units="1" version="1.0"/>
-</session>
