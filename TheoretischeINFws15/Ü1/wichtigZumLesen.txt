@@ -1,0 +1,4 @@
+
+Um die erste Übung html Datei auf github lesen zu können, muss man diesen Link verwenden :
+
+https://rawgit.com/HTWG-AIN/TheoretischeINFws15/master/TheoretischeINFws15/%C3%9C1/L%C3%B6sung1.html
