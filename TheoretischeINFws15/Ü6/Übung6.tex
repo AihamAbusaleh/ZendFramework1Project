@@ -1,0 +1,232 @@
+
+
+\documentclass[12pt]{article}
+
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usetikzlibrary{arrows,automata}
+\usepackage{pgf}
+\usepackage{amstext}
+\def \nat {\mathbf{N}}
+\newcolumntype{C}{>{$}c<{$}}
+\newcolumntype{R}{>{$}r<{$}}
+\usepackage{hyperref}
+\usepackage{stmaryrd}
+\begin{document}
+  
+\begin{center}
+\begin{huge}
+\textbf{Übungsblatt 6}\\
+\textit{Kellerautomaten}
+\end{huge} \\
+
+Theoretische Informatik\\
+Studiengang Angewandte Informatik\\
+Wintersemester 2015/2016\\
+Prof. Barbara Staehle, HTWG Konstanz
+\end{center}
+
+\section*{Aufgabe 6.1}
+
+\textit{[ 
+ topic = Arbeitsweise des PDAs $P_1$, 
+ credits = 3 
+ ] }
+  \\
+ Erinnern Sie sich an den in der Vorlesung definierten PDA \\ $P_1 = (\{s_0, s_1\}, \{a,b\}, \{A, \bot\}, \delta, s_0)$ mit $\mathcal{L}(P_1) = \{a^nb^n \mid n \in \nat \}$. 
+  
+ Bestimmen Sie für die Worte  
+  
+ \begin{enumerate} 
+ \item $\omega_1 = aabbb$ 
+\begin{large}
+\textbf{ $\lightning$}\\
+\end{large}
+
+\textbf{Lösung}\\
+\begin{tabular}{|C||C|C|C|}
+\centering
+Schritt & Zustand & w & Keller\\ \hline
+0 & s_0 & aabbb & \bot\\
+1& s_0 & abbb & A\bot\\
+2& s_0 & bbb & AA\\
+3& s_0 & bb & A\\
+\rowcolor[gray]{.7}
+4 & s_1 & b & \bot\\
+\end{tabular}\\\\
+
+das letzte b (markierte Zeile) kann nicht gelesen werden, da der Zustand $b,\bot,\epsilon$ \emph{NICHT} existiert ...
+Also anders gesagt, b kann erst dann gelesen werden wenn im Keller A steht und nicht $\bot$.. 
+ \item $\omega_2 = aaabbb$ $\surd$
+ 
+ 
+\textbf{Lösung}\\
+\begin{tabular}{|C||C|C|C|}
+\centering
+Schritt & Zustand & w & Keller\\ \hline
+0 & s_0 & aaabbb & \bot\\
+1& s_0 &  aabbb & A\bot\\
+2& s_0 &  abbb & AA\\
+3& s_0 &   bbb & AAA\\
+4& s_1 &   bb & AA\\
+5& s_1 & b & A\\
+6& s_1 & \epsilon & \bot\\
+7& s_1 & \epsilon & \epsilon
+\end{tabular}\\\\
+Keller ist leer, das Wort w wurde akzeptiert..
+ \item $\omega_3 = abaabb$ \begin{large}
+\textbf{ $\lightning$}\\
+\end{large}
+ 
+\textbf{Lösung}\\
+\begin{tabular}{|C||C|C|C|}
+\centering
+Schritt & Zustand & w & Keller\\ \hline
+0 & s_0 & abaabb & \bot\\
+1& s_0 &   baabb & A\bot\\
+2& s_0 &    aabb & \bot\\
+\rowcolor[gray]{.7}
+3& s_1 & aabb & \bot
+\end{tabular}\\\\
+Von Zustand $s_1$ (markiert )kann kein a gelesen werden daher w wird nicht akzeptiert 
+ \end{enumerate} 
+  
+ jeweils alle Konfigurationen (aktueller Zustand, verbleibendes Eingabewort, Inhalt des Kellers), die $P_1$ während der Verarbeitung der Worte durchläuft. Beantworten Sie anschließend, warum die Worte (nicht) akzeptiert werden. 
+  
+ Hinweis: Verwenden Sie Tabellen, oder die Übergangsrelation. 
+  
+  \section*{Aufgabe 6.2}
+
+\textit{  
+[ 
+ topic = Ein PDA für die OTTO-Zahlen 
+ ] }\\
+  
+ Erinnern Sie sich an die OTTO-Zahlen vom 3. Übungsblatt. Wir betrachten jetzt allerdings nur OTTO-Zahlen mit dem Ziffernvorrat 1-3: $L_{O3} \subseteq \{1,2,3\}^*$ mit \\ $L_{O3} = \{1, 2, 3, 11, 22, 33, 111, 121, 131 \ldots 2332 \ldots 132321, \ldots \}$.  
+  
+ \subsection*{Teilaufgabe 6.2.1} 
+ 
+  
+ Geben Sie den PDA $P_{O3}$ an, der $L_{O3}$ akzeptiert. Lassen Sie sich hierfür von den PDAs, die Sie in der Vorlesung kennengelernt haben, inspirieren.  
+  
+ Geben Sie die Zustandsübergangsfunktion sowohl in tabellarischer bzw. formaler Form als auch mittels eines erweiterten Zustandsübergangsdiagramms an. \\
+  \textbf{Lösung:}\\
+ \\
+ $P_{otto} = (\{s_0, s_1\}, \{1,2,3\}, \{X\}, \delta, s_0)$\\ \text{mit} \ $X \in \{A,B,C, \bot\}$\\\\
+ $\delta(s_0,1,X):=\{s_0,AX\}
+\\ 
+ \delta(s_0,2,X):=\{s_0,BX\}
+\\ 
+ \delta(s_0,3,X):=\{s_0,CX\}
+ \\
+ \delta(s_0,X,X):=\{s_1,X\}
+ \\
+ \delta(s_1,1,A):=\{s_1,\epsilon\}
+ \\
+ \delta(s_1,2,B):=\{s_1,\epsilon\}
+ \\
+ \delta(s_1,3,C):=\{s_1,\epsilon\}
+ \\
+  \delta(s_1,\epsilon,\bot):=\{s_1,\epsilon\}$
+\\
+ \begin{figure}[h] 
+ \centering 
+  
+ \begin{tikzpicture}[shorten >=7pt,node distance=4.5cm,auto, font=\footnotesize] 
+  
+ \tikzstyle{every state}=[minimum size = 1cm,inner sep=10pt] 
+ \node[state,initial] (s_0) {$s_0$}; 
+  \node[state] (s_1) [right of = s_0]{$s_1$}; 
+ %  \node[state,yshift=+2cm] (s_1) [above of = s_0]{$s_1$}; 
+
+
+ %\path[->] (s_0) edge [bend right=-70] node[anchor=below,below] {$1|2|3,				A;AA$} node {$1|2|3,\bot;A$} (s_1); 
+ %\path[->] (s_1) edge [loop above] node[anchor=north,right]  {$1|2|3,		A;\epsilon$} (); 
+  \path[->] (s_0) edge [loop below] node[anchor=left,left]  {$1,X;AX$} node[anchor=right,right]     {$2,X;BX$} ();
+  
+   \path[->] (s_0) edge [loop above] node[anchor=above,above]  {$3,X;CX$}  (); 
+ 
+  %\path[->] (s_1) edge  node {$1|2|3,				A;A$} (s_0);
+ \path[->] (s_1) edge [loop below] node[anchor=left,left]  {$1,A;\epsilon$} node[anchor=right,right]    {$2,B;\epsilon$}();
+ 
+  \path[->] (s_1) edge [loop above] node[anchor=above,above]  {$3,C;\epsilon$}
+ ();
+   \path[->] (s_1) edge [loop right] node[anchor=right,right]  {$\epsilon,\bot;\epsilon$}  
+ ();
+
+  
+  \path[->] (s_0) edge [bend left] node[anchor=above,above] {$\epsilon,X;X$} (s_1);
+
+
+ \node [below left of = s_0] {$P_{otto}$}; 
+   \end{tikzpicture} 
+ \caption{Zustandsübergangsdiagramme von $P_{otto}$} 
+ \label{A234} 
+ \end{figure} 
+  
+ \subsection*{Teilaufgabe 6.2.2} 
+
+ Bestimmen Sie für die Worte  
+  
+ \begin{enumerate} 
+ \item $\omega_1 = 123321$ $\surd$ \\
+ 
+\textbf{Lösung}\\
+\begin{tabular}{|C||C|R|R|}
+\centering
+Schritt & Zustand & w & Keller\\ \hline
+0 & s_0 & 123321 & \bot\\
+1& s_0 &   23321 & A \bot\\
+2& s_0 &    3321 &  BA\bot\\
+3& s_0 &     321 &  CBA\bot\\
+4& s_1 &      21 &  BA\bot\\
+5 & s_1 &      1 &  A \bot\\
+6 & s_1 &     \epsilon & \bot\\
+7 & s_1 & \epsilon & \epsilon
+\end{tabular}\\\\
+Keller ist leer, das Wort w wurde akzeptiert..
+ \item $\omega_2 = 321311$ $\lightning$ \\
+ \textbf{Lösung}\\
+ keine OTTO Zahl 
+ \end{enumerate} 
+  
+ jeweils alle Konfigurationen, die $P_1$ während der Verarbeitung der Worte \textbf{auf einem möglichen Pfad} durchläuft. Falls es einen akzeptierenden Pfad gibt, so wählen Sie bitte diesen. Beantworten Sie anschließend, warum die Worte (nicht) akzeptiert werden. 
+  
+  
+  
+ \end{document} 
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ \end{document} 
+  
+ 
