@@ -35,7 +35,7 @@ Prof. Barbara Staehle, HTWG Konstanz
  ] }
  \begin{quote}
   \textit{Allgemein bezüglich Überführung von Automaten! \\
-   DEA, das mit dem \textbf{Papierkorbsding}, und jeder Knoten hat \textbf{höchstens} einen Übergang mit der eine Beschriftung $(q,a,q')$,von jedem Knoten müssen also \textbf{alle} Beschriftungen (a,b,c...) ausgehen, anderenfalls spricht man von NEA.... }
+   DEA, jeder Knoten hat \textbf{höchstens} einen Übergang (oder keinen) mit der eine Beschriftung $(q,a,q')$,anderenfalls spricht man von NEA.... }
   
  \end{quote}
  
@@ -94,9 +94,9 @@ Prof. Barbara Staehle, HTWG Konstanz
 \textbf{  Lösung : 
 }\\
 \begin{itemize}
-\item $A_1$ ist DEA
-\item $A_2$ ist NEA, ohne Papierkorbzustand. Z.b von S1 fehlt ein Übergang mit Beschriftung a, daher brauchen wir Papierkorbzustand, wo ein Übergang mit Beschriftung a hin geht, damit wird dann der Automat DEA
-\item $A_3$ ist NEA, von S0 gehen zwei Übergänge mit einer Beschriftung nämlich a
+\item $A_2$ ist DEA
+\item $A_3$ ist DEA
+\item $A_4$ ist NEA, von S0 gehen zwei Übergänge mit einer Beschriftung nämlich a
 
 \end{itemize}
 
@@ -111,7 +111,7 @@ Prof. Barbara Staehle, HTWG Konstanz
  \begin{enumerate} 
  \item die Zustandsmenge,  
   \item die Finalmenge, 
- \item die Zustandsübergangsfunktion in tabellarischer Form an. 
+ \item die Zustandsübergangsfunktion in tabellarischer Form an. (für NEAs,alle in Mengen Klammern wenn es keinen Übergang gibt dann schreibt man $\varnothing$, bei DEAs schreibt man -)
  \end{enumerate} 
  \textbf{Lösung :}\\
 \textit{ Allgemein Zustandmenge : 
@@ -130,17 +130,17 @@ mit $\sigma =$ \\
 \begin{tabular}{C|C|C}
 S/\Sigma & a & b \\ \hline
 s_0 & s_2 & s_1\\
-s_1 & \epsilon & s_1\\
-s_2 & s_2 & \epsilon
+s_1 & - & s_1\\
+s_2 & s_2 & -
 \end{tabular}
 \item
 $A_4 = (\{s_0,s_1,s_2\},\{a,b\},\sigma,\{s_1,s_2\},s_0)$ \\
 mit $\sigma =$ \\
 \begin{tabular}{C|C|C}
 S/\Sigma & a & b \\ \hline
-s_0 & \{s_0,s_2\}& s_1\\
-s_1 & \epsilon & s_1\\
-s_2 & s_2 & \epsilon
+s_0 & \{s_0,s_2\}& \{s_1\}\\
+s_1 & \varnothing & \{s_1\}\\
+s_2 & \{s_2\} & \varnothing
 \end{tabular}
 
  \end{itemize}
@@ -209,7 +209,7 @@ $w_4=aba$
   \textbf{Lösung}:\\
   \begin{itemize}
 \item Für Automat $A_2$\\
-im Zustand $s_1$
+$\sigma(s_0,bbb)\to \sigma(s_1,bb) \to \sigma(s_1,b)$ $\Rightarrow s_1$
 \item Für Automat $A_3$\\
 im zustand $s_1$
 \item Für Automat $A_4$\\
@@ -280,7 +280,7 @@ im Zustand $s_1$
 
   
  \begin{figure}[h] 
-   $A_p = (\{s_0,s_1,s_2,s_3,s_4,s_5,s_6,s_7\},\{0,1\},\sigma,\{s_1,s_3,s_5,s_7\},s_0)$ \\ mit $\sigma =$ \\
+   $A_p = (\{s_0,s_1\},\{0,1\},\sigma,\{s_1\},s_0)$ \\ mit $\sigma =$ \\
 
  \centering 
   
@@ -288,29 +288,14 @@ im Zustand $s_1$
   
  \tikzstyle{every state}=[minimum size = 0cm,inner sep=3pt] 
  \node[state,initial]   (A) {$s_0$}; 
- \node[state,accepting] (B) [above right of = A]{$s_1$};
- \node[state] 			(C) [ right of = B]{$s_2$};
- \node[state,accepting] (D) [ right of = C]{$s_3$};
-  \node[state] 			(E) [below right of = A]{$s_4$};
-\node[state,accepting] 	(F) [ right of = E]{$s_5$};
-\node[state] 			(G) [ right of = F]{$s_6$};
-\node[state,accepting] 	(H) [ right of = G]{$s_7$};
+ \node[state,accepting] (B) [ right of = A]{$s_1$};
+
 
  
- \path[->] (A) edge [bend right] node {0} (B)
-  		   	   edge [bend right] node {1} (E) 
-  		   (B) edge [bend right] node {1} (C)
-  		   	   edge [loop above] node {0} (B) 
-  		   (C) edge [bend right] node {1} (D)
-  		   	   edge [loop above] node {0} (C) 
-  		   (D) edge [loop above] node {0,1} (D)
-  		   (E) edge [bend right] node {1} (F)
-  		   	   edge [loop below] node {0} (E)
-  		   (F) edge [bend right] node {1} (G)
-  		   	   edge [loop below] node {0} (F)
-  		   (G) edge [bend right] node {1} (H)
-  		   	   edge [loop below] node {0} (G)
-  		   (H) edge [loop below] node {0,1} (H);
+ \path[->] (A) edge [bend right] node[anchor=below,below] {1} (B)
+  		   	   edge [loop above] node {0} (A) 
+  		   (B) edge [bend right] node[anchor=above,above] {1} (A)
+  		   	   edge [loop above] node {0} (B);
 
  \node [below left of = A] {$A_p$}; 
    
@@ -344,7 +329,7 @@ im Zustand $s_1$
  credits = 2 
  ] 
  Geben Sie einen NEA $N_{11}$ an der $L_{11}$ akzeptiert, für den also $\mathcal{L}(N_{11}) = L_{11}$ \\
- \textbf{Lösung} :Sternchen heißt beliebig aber auch NULL?!!!!\\ 
+ \textbf{Lösung} :Sternchen heißt beliebig viel oder leer!!!!\\ 
    
  \begin{figure}[h] 
    $N_{11} = (\{s_0,s_1,s_2\},\{0,1\},\sigma,\{s_0,s_2\},s_0)$ \\ mit $\sigma =$ \\
@@ -362,7 +347,7 @@ im Zustand $s_1$
  \path[->] (A) edge [bend right] node {1} (B)
   		   	   edge [loop above] node {1} (A) 
   		   (B) edge [bend right] node {1} (C)
-  		   	   edge [loop above] node {0} (B) 
+  		   	   edge [loop above] node {0,1} (B) 
   		   (C) edge [loop above] node {1} (C); 
   		  
  \node [below left of = A] {$N_{11}$}; 
@@ -381,20 +366,19 @@ im Zustand $s_1$
  Geben Sie einen DEA $A_{11}$ an, welcher $L_{11}$ akzeptiert. Tipp: Dieser benötigt genauso viele Zustände wie $N_{11}$, jedoch mehr Zustandsübergänge. \\
  \textbf{Lösung} :   
  \begin{figure}[h] 
-   $N_{11} = (\{s_0,s_1,s_2\},\{0,1\},\sigma,\{s_0,s_2\},s_0)$ \\ mit $\sigma =$ \\
+   $N_{11} = (\{s_0,s_1,s_2\},\{0,1\},\sigma,\{s_2\},s_0)$ \\ mit $\sigma =$ \\
 
  \centering 
   
  \begin{tikzpicture}[shorten >=3pt,node distance=2.0cm,auto, font=\footnotesize] 
   
  \tikzstyle{every state}=[minimum size = 0cm,inner sep=3pt] 
- \node[state,initial,accepting]   (A) {$s_0$}; 
+ \node[state,initial]   (A) {$s_0$}; 
  \node[state] 		(B) [right of = A]{$s_1$};
- \node[state,accepting] (C) [below right  of = B]{$s_2$};
+ \node[state,accepting] (C) [ right  of = B]{$s_2$};
 
  
- \path[->] (A) edge [bend right] node {0} (B)
-  		   	   edge [loop above] node {1} (A) 
+ \path[->] (A) edge [bend right] node {1} (B)
   		   (B) edge [bend left] node {1} (C)
   		   	   edge [loop above] node {0} (B) 
   		   (C) edge [loop right] node {1} (C)
@@ -416,7 +400,7 @@ im Zustand $s_1$
   
  Geben Sie einen regulären Ausdruck an, der $L_{11}$ erzeugt. Hierbei ist es egal, ob Sie eine formale, oder eine Unix-ähnliche Syntax wählen.  \\
   \textbf{Lösung}\\
-  $1^*(01)^*0^*1^*$
+  $1(01)^*1^*$
   
   
  \subsection*{Teilaufgabe 5.3.4} [
@@ -424,11 +408,9 @@ im Zustand $s_1$
  ] 
   
  Geben Sie eine Grammatik $G_{11}$ an, die $L_{11}$ erzeugt.  \\
-  $G_N = \{\{S,A,B,C\},\{0,1\},P,S\}$ mit P =\\
- $S \rightarrow 1A|10B|1C|1$\\
- $A \rightarrow 1S$\\
- $B \rightarrow 10S$\\
- $C \rightarrow 0CS$
+  $G_N = \{\{S,A\},\{0,1\},P,S\}$ mit P =\\
+ $S \rightarrow 1A1$\\
+ $A \rightarrow 0A|1A|\epsilon$
  \end{document} 
   
  

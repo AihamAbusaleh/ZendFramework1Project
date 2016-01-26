@@ -84,22 +84,25 @@ S \rightarrow SS\\
  \textit{Bemerkungen:} immer auf 2 und 3 zuerst nachchecken
 
 \begin{enumerate}
-\item   Typ 0 : keine Einschränkungen
+\item ES GILT $ N = \{S,T\} , \Sigma =\{a,b,c\}$ \\ 
+allgemeine Form $l \to r$ mit $l \in (N \cup \Sigma)^+$ und $r \in (N \cup \Sigma)^* $ das Sternchen heißt mit leerem Wort $\epsilon$
+\item   Typ 0 : keine Einschränkungen \\
+$aSb \to Ta$
+
 \item   Typ 1 : Kontextsensetiv \\
- $\beta\in(\Sigma \cup N)^*$ und $\beta \geq 1$ \\
-wenn $a_1$ auf der linken Seite vorhanden ist dann muss es auch auf der rechten sein und so weiter also Struktur einhalten und A wird zu $\beta$ beliebig\\
-    $a_1Aa_2 \rightarrow a_1 \beta a_2$\\
-     Ausnahme \
-    $S \rightarrow \epsilon$
-     S kommt nicht auf der rechten Seite vor
-\item   Typ 2: kontextfrei
-    $A \rightarrow \beta$\\
+Länge r muss größer gleich die Länge von l\\
+$|r| \geq |l|$\\
+Z.B : $aSb \to aTcb$\\
+Ausnahme : $S \to \epsilon$ erlaubt falls S nicht auf der rechten Seite einer Regel vorkommt.
+\item   Typ 2: kontextfrei, vom Typ 1 jedoch gilt dass $l \in N$ rechte Seite egal \\
+    $S \rightarrow aSb$\\
     Ausnahme von Typ 1 gilt hier auch
-\item Typ 3: regulär 
-$a\in \Sigma^*$ \\
-    $A \rightarrow aB$ \\
-    $A \rightarrow a $\\
-     Ausnahme gilt\
+\item Typ 3: regulär \\ linke Seite : ein Nonterminal Symbol \\ rechte Seite : leeres Wort oder einzelnes Terminalsymbol oder einzelnes Terminalsymbol folgt von einem NonTerminal.\\
+$S \to aT$\\
+$S \to a$\\
+$S \to \epsilon$
+
+     Ausnahme gilt
      
 \end{enumerate}
 $--------------------------------------$\\ \\
@@ -113,7 +116,7 @@ $--------------------------------------$\\ \\
  \item $v: R2S \rightarrow 23T$ \\  Typ 1
  \item $w: R \rightarrow S$\\ Typ 2
  \item $x: R \rightarrow 1S$ \\ Typ 3
- \item $y: 2RST \rightarrow R3R$ \\ nicht Typ 1 ( $< =$ nicht erfüllt) weil Nummer 2 ist auf der anderen Seite nicht mehr zu finden ist Also Typ 0
+ \item $y: 2RST \rightarrow R3R$ \\  Typ 0 (die Längen vergleichen!)
  \end{enumerate} 
   
  \textbf{Zusatzfrage (ohne Punkte)} Handelt es sich bei der Regel $z: 1 \rightarrow 1S$ Ihrer Meinung nach um eine korrekte Typ-0 Regel? Analysieren Sie einerseits die Definition, aber bedenken Sie auch, was Sie generell über Grammatiken und Regeln wissen.  
@@ -137,9 +140,9 @@ $--------------------------------------$\\ \\
  \\
  $G_N = \{\{S,N\},\{0,...9\},P,S\}$ mit P =\\
  
- $S \rightarrow 0|0N|1N|2N|3N|4N|5N|6N|7N|8N|9N$
+ $S \rightarrow 0|...|9|1N|...|9N$
  
- $N \rightarrow \epsilon|0N|1N|......|9N$
+ $N \rightarrow 0|..|9|1S|......|9S$
  \item Welchen Chomsky-Typ hat Ihre Grammatik? \\
  Typ 3
  \item Können Sie Ihre Grammatik so umformen, dass sie regulär ist? \\
@@ -157,21 +160,10 @@ $--------------------------------------$\\ \\
  $L_O \subseteq L_N \subseteq \{0,1,\ldots,9\}^*$ mit $L_O = \{0, 1, \ldots 9, 11, 22 \ldots , 99, 101, 111, 121, \ldots , 573375, \ldots \}$, sei die Sprache der OTTO-Zahlen, also der natürlichen Zahlen, die von vorne und hinten gelesen gleich sind. 
  \begin{enumerate} 
  \item Geben Sie eine Grammatik an, welche $L_O$ erzeugt.\\ 
- Die Frau Dr. meinte ist nicht ganz richtig :( hab die Lösung noch nicht ....\\
  $G_N = \{\{S,A,B,C,D,E,F,G,H,I,J\},\{0,...9\},P,S\}$ mit P =\\
- $S \rightarrow \epsilon|0A|1B|2C|3D|4E|5F|6G|7H|8I|9J$\\
- $A \rightarrow 0 | S$\\
- $B \rightarrow 1 | S$\\
- $C \rightarrow 2 | S$\\
- $D \rightarrow 3 | S$\\
- $E \rightarrow 4 | S$\\
- $F \rightarrow 5 | S$\\
- $G \rightarrow 6 | S$\\
- $H \rightarrow 7 | S$\\
- $I \rightarrow 8 | S$\\
- $J \rightarrow 9 | S$ 
+ $S \rightarrow 0|...|9|0S|1S|...|9S$\\
  \item Welchen Chomsky-Typ hat Ihre Grammatik? 
- Typ 2
+ Typ 3
  \item Können Sie Ihre Grammatik so umformen, dass sie regulär ist? 
  ist auch Typ 3
  \end{enumerate}  

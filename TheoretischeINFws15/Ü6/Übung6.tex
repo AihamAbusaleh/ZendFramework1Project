@@ -56,10 +56,11 @@ Prof. Barbara Staehle, HTWG Konstanz
 Schritt & Zustand & w & Keller\\ \hline
 0 & s_0 & aabbb & \bot\\
 1& s_0 & abbb & A\bot\\
-2& s_0 & bbb & AA\\
-3& s_0 & bb & A\\
+2& s_0 & bbb & AA\bot\\
+3& s_1 & bb & A\bot\\
+4& s_1 & b & \bot\\
 \rowcolor[gray]{.7}
-4 & s_1 & b & \bot\\
+5& s_1 & b & \epsilon\\
 \end{tabular}\\\\
 
 das letzte b (markierte Zeile) kann nicht gelesen werden, da der Zustand $b,\bot,\epsilon$ \emph{NICHT} existiert ...
@@ -91,7 +92,7 @@ Keller ist leer, das Wort w wurde akzeptiert..
 Schritt & Zustand & w & Keller\\ \hline
 0 & s_0 & abaabb & \bot\\
 1& s_0 &   baabb & A\bot\\
-2& s_0 &    aabb & \bot\\
+2& s_1 &    aabb & \bot\\
 \rowcolor[gray]{.7}
 3& s_1 & aabb & \bot
 \end{tabular}\\\\
@@ -203,30 +204,3 @@ Keller ist leer, das Wort w wurde akzeptiert..
   
  \end{document} 
   
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- \end{document} 
-  
- 
