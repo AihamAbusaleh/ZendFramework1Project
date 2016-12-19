@@ -1,4 +1,0 @@
-rea = neder(nw ader("c:puxt"));
-r.read();
-whle(d!= -1){
- eaer();
