@@ -63,7 +63,7 @@ public class MyResource {
 
 		 UploadMethod.uploadFile(true,fileDetail.getFileName());
 
-			// return "succ";
+			// return "succ ";
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		} catch (Throwable t) {
