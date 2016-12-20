@@ -1,0 +1,76 @@
+<ul>
+	<li><a href=" <?= $this->url(array(
+                        'controller' => 'admin',
+                        'action'     => 'index',
+                        ), 
+                        'default', true
+                    ); 
+                 ?>"
+		title="Va alla Home di Admin">Home</a></li>
+                
+                
+                
+	<li><a href=" <?= $this->url(array(
+                        'controller' => 'admin',
+                        'action'     => 'index',
+                        ), 
+                        'default', true
+                    ); 
+                 ?>"
+		title="Torna al Catalogo">Catalogo</a></li>
+                
+                
+                
+                
+	<li><a
+		href="
+                <?= $this->url(array(
+                        'controller' => 'admin',
+                        'action'     => 'newproduct',
+                        ), 
+                        'default', true
+                    ); 
+                 ?>"
+		title="Inserisce nuovi prodotti">Inserisci</a></li>
+                
+                
+                
+                
+	<li><a
+		href="
+                <?= $this->url(array(
+                        'controller' => 'admin',
+                        'action'     => 'updateproduct',
+                                        ), 
+                        'default'
+                    ); 
+                 ?>"
+		title="Modifica Prodotti">Modifica</a></li>
+                
+                
+                
+	<li><a
+		href="
+                <?= $this->url(array(
+                        'controller' => 'admin',
+                        'action'     => 'delproduct',
+                                        ), 
+                        'default', true
+                    ); 
+                 ?>"
+		title="Cancella Prodotti">Cancella</a></li>
+                
+                
+                
+                
+	<li><a
+		href="
+                <?= $this->url(array(
+                        'controller' => 'admin',
+                        'action'     => 'logout',
+                         ), 
+                        'default', true
+                    ); 
+                 ?>"
+		title="Esce dall'Area Amministratore">Logout</a></li>
+</ul>
